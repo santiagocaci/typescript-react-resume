@@ -1,9 +1,6 @@
 import styles from './select.module.css';
+import type { SelectOption } from './types';
 
-type SelectOption = {
-  label: string;
-  value: string;
-};
 type SelectProps = {
   options: SelectOption[];
   value?: SelectOption;
@@ -11,9 +8,18 @@ type SelectProps = {
 };
 export function Select({ value, onChange, options }: SelectProps) {
   return (
-    <>
-      <div className={'container'}>Wrong</div>
-      <div className={styles.container}>Right</div>
-    </>
+    <div tabIndex={0} className={styles.container}>
+      <span className={styles.value}>Value</span>
+      <button className={styles['close-btn']}>&times;</button>
+      <div className={styles.divider}></div>
+      <div className={styles.caret}></div>
+      <ul className={`${styles.options} ${styles.show}`}>
+        {options.map((option) => (
+          <li key={option.label} className={styles.option}>
+            {option.label}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
