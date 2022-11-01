@@ -12,12 +12,20 @@ const options: SelectOption[] = [
 
 function App() {
   const [value, setValue] = useState<SelectOption | undefined>(options[0]);
+  const [mutiple, setMultiple] = useState<SelectOption[]>([]);
   return (
     <>
       <Select
         options={options}
         value={value}
         onChange={(valueChange) => setValue(valueChange)}
+      />
+      <br />
+      <Select
+        multiple
+        options={options}
+        value={mutiple}
+        onChange={(valueChange) => setMultiple(valueChange)}
       />
     </>
   );
