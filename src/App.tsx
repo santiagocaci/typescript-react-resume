@@ -12,7 +12,7 @@ const options: SelectOption[] = [
 
 function App() {
   const [value, setValue] = useState<SelectOption | undefined>(options[0]);
-  const [mutiple, setMultiple] = useState<SelectOption[]>([]);
+  const [mutiple, setMultiple] = useState<SelectOption[]>(options);
   return (
     <>
       <Select
